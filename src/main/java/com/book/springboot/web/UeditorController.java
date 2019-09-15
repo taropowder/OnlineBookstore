@@ -1,7 +1,7 @@
 package com.book.springboot.web;
 
-import com.car.springboot.pojo.Ueditor;
-import com.car.springboot.util.PublicMsg;
+import com.book.springboot.pojo.Ueditor;
+import com.book.springboot.util.PublicMsg;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
