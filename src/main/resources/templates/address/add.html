@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Book Store Template, Free CSS Template, TemplateMo.com</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link th:href="@{/static/css/templatemo_style.css}" href="templatemo_style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/layui/css/layui.css}"/>
+    <script th:src="@{/static/layui/layui.js}"></script>
+</head>
+<body>
+<!--  Free CSS Templates from www.templatemo.com -->
+<div id="templatemo_container">
+    <div th:replace="block::menu"></div>
+    <div th:replace="block::header"></div>
+
+    <div id="templatemo_content">
+
+        <!--        <div th:replace="block::left"></div>-->
+
+        <!--        <div id="templatemo_content_right">-->
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+            <legend>增加收货地址</legend>
+        </fieldset>
+        <form action="/addAddress" method="post">
+
+        <div class="layui-form-item">
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">请输入地址</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入内容" class="layui-textarea" name="content"></textarea>
+                </div>
+            </div>
+
+        </div>
+        <div  style="display:block; text-align: center;color: blue" >
+            <input  type="submit" class="layui-btn layui-btn-normal layui-btn-radius" value="增加新地址"/>
+        </div>
+        </form>
+        <!--        </div> &lt;!&ndash; end of content right &ndash;&gt;-->
+
+        <div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+
+    <div id="templatemo_footer">
+        Copyright © 2019 <a href="#"><strong>中北大学版权所有</strong></a>
+    </div> <!-- end of footer -->
+</div> <!-- end of container -->
+</body>
+</html>

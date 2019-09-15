@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Book Store Template, Free CSS Template, TemplateMo.com</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link th:href="@{/static/css/templatemo_style.css}" href="templatemo_style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/layui/css/layui.css}"/>
+    <script th:src="@{/static/layui/layui.js}"></script>
+</head>
+<style type="text/css">
+    .layui-form-select dl dd {
+        color: black;
+    }
+</style>
+<body>
+<!--  Free CSS Templates from www.templatemo.com -->
+<div id="templatemo_container">
+    <div th:replace="block::menu"></div>
+    <div th:replace="block::header"></div>
+    
+    <div id="templatemo_content">
+
+<!--        <div th:replace="block::left"></div>-->
+        
+<!--        <div id="templatemo_content_right">-->
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+            <legend>确认订单</legend>
+        </fieldset>
+
+            <div class="layui-form" >
+                <table class="layui-table" lay-skin="nob" style="background-color: #171716">
+                    <colgroup>
+                        <col width="700"/>
+                        <col width="150"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>书名</th>
+                        <th>价格</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="cart:${carts}" >
+                        <td th:text="${cart.book.name}" ></td>
+                        <td id="price" th:text="${cart.book.price}"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+            <legend id="all"></legend>
+        </fieldset>
+<!--        </div> &lt;!&ndash; end of content right &ndash;&gt;-->
+        <form class="layui-form" action="/confirmOrder" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">选择地址</label>
+                <div class="layui-input-block">
+                    <select name="address_id" lay-verify="required" lay-search="">
+                        <option value="">直接选择或搜索选择</option>
+                        <option th:each="address:${addresses}" th:value="${address.id}" th:text="${address.content}"></option>
+                    </select>
+                </div>
+            </div>
+
+<!--            <div class="layui-inline">-->
+<!--                <label class="layui-form-label">选择地址</label>-->
+<!--                <div class="layui-input-inline">-->
+
+<!--                </div>-->
+<!--            </div>-->
+        <div  style="display:block; text-align: center;color: blue" >
+            <input type="submit" class="layui-btn layui-btn-normal layui-btn-radius" value="确认订单"/>
+        </div>
+        </form>
+
+        <div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+    <script>
+        layui.use('form', function(){
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+            //……
+
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            //因此你需要在相应的地方，执行下述方法来进行渲染
+            form.render();
+        });
+    </script>
+    <script th:inline="javascript"> /*<![CDATA[*/
+    var prices = document.querySelectorAll("#price");
+    var all = 0;
+    for (var i=0;i<prices.length;i++){
+        all = all + Number(prices[i].textContent);
+    }
+    console.log(all);
+    var all_dom =document.getElementById("all");
+    all_dom.textContent ="总价: "+all;
+
+    /*]]>*/ </script>
+
+    <div id="templatemo_footer">
+        Copyright © 2019 <a href="#"><strong>中北大学版权所有</strong></a>
+    </div>  <!-- end of footer -->
+</div> <!-- end of container -->
+</body>
+</html>

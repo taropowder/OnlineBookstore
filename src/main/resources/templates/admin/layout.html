@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>在线书城后台</title>
+    <script th:src="@{/static/layui/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/layui/css/layui.css}"/>
+</head>
+<body class="layui-layout-body" style="background-color: antiquewhite">
+<div class="layui-layout layui-layout-admin">
+    <div th:replace="admin/block::menu"></div>
+
+
+
+<!--    <div class="layui-body">-->
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <div class="layui-card">
+                <div class="layui-card-header">图书</div>
+                <div class="layui-card-body">
+                    商城内有图书X本
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-header">订单</div>
+                <div class="layui-card-body">
+                    商城内有订单X单
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-header">用户</div>
+                <div class="layui-card-body">
+                   注册用户X人
+                </div>
+            </div>
+        </div>
+<!--    </div>-->
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        Copyright © 2019 <a href="#"><strong>中北大学版权所有</strong></a>
+    </div>
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+</body>
+</html>

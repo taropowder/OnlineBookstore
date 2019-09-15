@@ -1,0 +1,50 @@
+<div id="templatemo_menu" th:fragment="menu"  xmlns:th="http://www.w3.org/1999/xhtml" >
+    <ul>
+        <li><a href="/" class="current">Home</a></li>
+<!--        <li><a href="oneBook.html">Search</a></li>-->
+<!--        <li><a href="oneBook.html">Books</a></li>-->
+        <li><a href="/login" th:if="!${session.user}">登录/注册</a></li>
+        <li><a href="/logout" th:if="${session.user}">登出</a></li>
+
+        <li><a href="/cart" th:if="${session.user}">购物车</a></li>
+        <li><a href="/address" th:if="${session.user}">我的地址</a></li>
+        <li><a href="/MyOrder" th:if="${session.user}">我的订单</a></li>
+<!--        <li><a href=#">Contact</a></li>-->
+    </ul>
+</div> <!-- end of menu -->
+
+<div id="templatemo_header" th:fragment="header"  xmlns:th="http://www.w3.org/1999/xhtml">
+    <div id="templatemo_special_offers">
+        <p>
+            <span>25%</span>折扣
+        </p>
+        <a href="oneBook.html" style="margin-left: 50px;">查看详情</a>
+    </div>
+
+
+    <div id="templatemo_new_books">
+        <ul>
+            <li>魔幻大陆上的爱恨情仇</li>
+            <li>未来世界的科幻巨作</li>
+            <li>超越想象的世纪伟章</li>
+
+        </ul>
+        <a href="oneBook.html" style="margin-left: 50px;">查看详情</a>
+    </div>
+</div> <!-- end of header -->
+
+<div id="templatemo_content_left" th:fragment="left(${new_book},${hot_book})"  xmlns:th="http://www.w3.org/1999/xhtml" >
+    <div class="templatemo_content_left_section">
+        <h1>最新上架</h1>
+        <ul>
+            <li th:each="book:${new_book}"><a th:href="|/book?id=${book.id}|" th:text="${book.name}" ></a></li>
+        </ul>
+    </div>
+    <div class="templatemo_content_left_section">
+        <h1>热销图书</h1>
+        <ul>
+            <li th:each="book:${hot_book}"><a th:href="|/book?id=${book.id}|" th:text="${book.name}" ></a></li>
+        </ul>
+    </div>
+
+</div> <!-- end of content left -->

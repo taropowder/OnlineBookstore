@@ -1,0 +1,37 @@
+<div class="layui-header"  th:fragment="menu" xmlns:th="http://www.w3.org/1999/xhtml" >
+    <div class="layui-logo">在线书城后台</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item"><a href="/admin">欢迎页面</a></li>
+        <li class="layui-nav-item"><a href="/">前台页面</a></li>
+<!--        <li class="layui-nav-item"><a href="">商品管理</a></li>-->
+<!--        <li class="layui-nav-item"><a href="">用户</a></li>-->
+        <li class="layui-nav-item">
+            <a href="javascript:;">图书管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="/admin/book">图书列表</a></dd>
+                <dd><a href="/admin/book/add">增加图书</a></dd>
+                <!--                    <dd><a href="">授权管理</a></dd>-->
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">订单管理</a>
+            <dl class="layui-nav-child">
+                <dd><a href="/admin/order">订单列表</a></dd>
+            </dl>
+        </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+            <a href="javascript:;"  th:text="${session.admin.username}">
+<!--                <img src="http://t.cn/RCzsdCq" class="layui-nav-img"/>-->
+                贤心
+            </a>
+<!--            <dl class="layui-nav-child">-->
+<!--                <dd><a href="">基本资料</a></dd>-->
+<!--                <dd><a href="">安全设置</a></dd>-->
+<!--            </dl>-->
+        </li>
+        <li class="layui-nav-item"><a href="/logout">退了</a></li>
+    </ul>
+</div>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Book Store Template, Free CSS Template, TemplateMo.com</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link th:href="@{/static/css/templatemo_style.css}" href="templatemo_style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/layui/css/layui.css}"/>
+    <script th:src="@{/static/layui/layui.js}"></script>
+</head>
+<body>
+<!--  Free CSS Templates from www.templatemo.com -->
+<div id="templatemo_container">
+    <div th:replace="block::menu"></div>
+    <div th:replace="block::header"></div>
+    
+    <div id="templatemo_content">
+
+<!--        <div th:replace="block::left"></div>-->
+        
+<!--        <div id="templatemo_content_right">-->
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+            <legend>收货地址</legend>
+        </fieldset>
+
+            <div class="layui-form" >
+                <table class="layui-table" lay-skin="nob" style="background-color: #171716">
+                    <colgroup>
+                        <col width="700"/>
+                        <col width="150"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>地址</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="address:${page.list}" >
+                        <td th:text="${address.content}" ></td>
+                        <td> <a th:href="@{/deleteAddress(id=${address.id})}" type="button" class="layui-btn layui-btn-danger layui-btn-radius">删除</a></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+<!--        </div> &lt;!&ndash; end of content right &ndash;&gt;-->
+    <div  style="display:block; text-align: center;color: blue" >
+        <a href="/addAddress" type="submit" class="layui-btn layui-btn-normal layui-btn-radius">增加新地址</a>
+    </div>
+        <div style="display:block; text-align: center;color: blue" >
+            <a th:href="@{/cart(start=0)}">[首  页]</a>
+            <a th:href="@{/cart(start=${page.pageNum-1})}">[上一页]</a>
+            <a th:href="@{/cart(start=${page.pageNum+1})}">[下一页]</a>
+            <a th:href="@{/cart(start=${page.pages})}">[末  页]</a>
+        </div>
+        <div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+
+    <div id="templatemo_footer">
+        Copyright © 2019 <a href="#"><strong>中北大学版权所有</strong></a>
+    </div>  <!-- end of footer -->
+</div> <!-- end of container -->
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>在线书城系统后台登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/static/login/normalize.min.css}">
+    <link rel="stylesheet"th:href="@{/static/login/style.css}">
+    <script th:src="@{/static/login/prefixfree.min.js}"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="container" onclick="onclick">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="center">
+        <h2>后台登录</h2>
+        <form action="/admin/login" method="post">
+            <input type="text" name="username" placeholder="username"/>
+            <input type="password" name="password" placeholder="password"/>
+            <input type="submit" value="登录">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+
+<!--<!DOCTYPE HTML>-->
+<!--<head>-->
+<!--    <title>hello</title>-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+<!--    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/css/style.css}"/>-->
+<!--    <script type="text/javascript" src="../../webapp/static/js/thymeleaf.js" th:src="@{/static/js/thymeleaf.js}"></script>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<form action="/admin/login" method="post">-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td>用户名</td>-->
+<!--            <td><input type="text" name="username"/></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>密码</td>-->
+<!--            <td><input type="password" name="password"/></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <input type="submit" th:value="提交"/>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

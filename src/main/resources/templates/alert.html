@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!--    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/css/style.css}"/>-->
+    <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/layui/css/layui.css}"/>
+<!--    <link rel="stylesheet" type="text/javascript" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/layui/layui.js}"/>-->
+<!--    <link rel="stylesheet" th:href="@{/static/css/style.css}" />-->
+    <script th:src="@{/static/layui/layui.js}"></script>
+<!--    <script type="text/javascript" src="../../webapp/static/js/thymeleaf.js" th:src="@{/static/js/thymeleaf.js}"></script>-->
+
+
+
+</head>
+<body>
+<!--<div class="showing">-->
+
+    <p th:text="${message}" style="visibility: hidden;"  id="message">name</p>
+    <p th:text="${url}" style="visibility: hidden;"  id="url">name</p>
+    <p th:text="${title}" style="visibility: hidden;"  id="title">name</p>
+<!--    <p th:text="'Hello！ ' + ${name} + '!'" >hello world</p>-->
+<!--    <p th:text="|Hello！ ${name}!|" >hello world</p>-->
+
+<!--</div>-->
+<script>
+    // var message=document.getElementById("message");
+    // var url=document.getElementById("url");
+    // alert(message.textContent);
+    // window.location.href=url.textContent;
+
+</script>
+<script>
+    layui.use('layer', function(){
+
+        var layer = layui.layer;
+        var message=document.getElementById("message").textContent;
+        var title=document.getElementById("title").textContent;
+        var url=document.getElementById("url").textContent;
+        layer.open({
+            title: title,
+            content: message,
+            success: function(layero){
+                var btn = layero.find('.layui-layer-btn');
+                btn.find('.layui-layer-btn0').attr({
+                    href: url
+                });
+            }
+        });
+        // setTimeout("javascript:location.href='"+url+"'", 5000);
+    });
+</script>
+</body>
+
+
+
+</html>
