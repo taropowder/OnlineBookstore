@@ -34,5 +34,8 @@ public interface BookMapper {
     @Update("update `book` set name=#{name},author=#{author},price=#{price},description=#{description},sales=#{sales},intro=#{intro},image=#{image} where id=#{id} ")
     public void changeWithImage(Book book);
 
+    @Select("select count(id) from `book`")
+    public int countBook();
+
 
 }

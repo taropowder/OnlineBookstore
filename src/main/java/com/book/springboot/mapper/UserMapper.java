@@ -19,6 +19,9 @@ public interface UserMapper {
     @Select("select * from  user where id= #{id} ")
     public User getUserById(int id);
 
+    @Select("select count(id) from `user`")
+    public int countUser();
+
 
 //    @Select("SELECT * FROM `type` where id = #{id}")
 //    @Results({

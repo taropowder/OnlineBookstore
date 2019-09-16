@@ -47,4 +47,8 @@ public interface OrderMapper {
 
     @Insert(" insert into `order` ( user_id,book_id,address_id,status,orderTime ) values (#{user_id},#{book_id},${address_id},#{status},#{orderTime}) ")
     public void save(Order order);
+
+    @Select("select count(id) from `order`")
+    public int countOrder();
+
 }

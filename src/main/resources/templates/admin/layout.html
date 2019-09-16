@@ -18,20 +18,20 @@
         <div style="padding: 15px;">
             <div class="layui-card">
                 <div class="layui-card-header">图书</div>
-                <div class="layui-card-body">
-                    商城内有图书X本
+                <div class="layui-card-body" th:text="|商城内有图书${book_count}本|">
+
                 </div>
             </div>
             <div class="layui-card">
                 <div class="layui-card-header">订单</div>
-                <div class="layui-card-body">
+                <div class="layui-card-body" th:text="|商城内有订单${order_count}个|">
                     商城内有订单X单
                 </div>
             </div>
             <div class="layui-card">
                 <div class="layui-card-header">用户</div>
-                <div class="layui-card-body">
-                   注册用户X人
+                <div class="layui-card-body" th:text="|商城内有用户${user_count}人|">
+                    注册用户X人
                 </div>
             </div>
         </div>

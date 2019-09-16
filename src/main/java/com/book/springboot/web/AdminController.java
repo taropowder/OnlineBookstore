@@ -3,6 +3,7 @@ package com.book.springboot.web;
 import com.book.springboot.mapper.AdminMapper;
 import com.book.springboot.mapper.BookMapper;
 import com.book.springboot.mapper.OrderMapper;
+import com.book.springboot.mapper.UserMapper;
 import com.book.springboot.pojo.Admin;
 import com.book.springboot.pojo.Book;
 import com.book.springboot.pojo.Order;
@@ -33,6 +34,8 @@ public class AdminController {
     BookMapper bookMapper;
     @Autowired
     OrderMapper orderMapper;
+    @Autowired
+    UserMapper userMapper;
 
 
     @PostMapping("/admin/login")
@@ -69,6 +72,12 @@ public class AdminController {
             model.addAttribute("url","/admin/login");
             return "alert";
         }
+        int book_count = bookMapper.countBook();
+        int order_count = orderMapper.countOrder();
+        int user_count = userMapper.countUser();
+        model.addAttribute("book_count",book_count);
+        model.addAttribute("order_count",order_count);
+        model.addAttribute("user_count",user_count);
         return "admin/layout";
     }
 
